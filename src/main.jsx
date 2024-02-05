@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import 'swiper/css';
 import './index.css'
 import { RouterProvider } from 'react-router-dom'
 import router from './routers/Routes/Routes.jsx'

@@ -31,3 +31,44 @@
     filter: blur(250px);
   }
 }
+
+.my-btn{
+  @apply border-2 border-white bg-transparent tracking-wide text-white capitalize hover:bg-transparent hover:border-white text-base
+}
+
+
+/* Mobile Responsive:- */
+/* Extra large */
+@media only screen and (max-width: 1200px) {
+  .my-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* large */
+@media only screen and (max-width: 992px) {
+  .my-container {
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* Medium */
+@media only screen and (max-width: 768px) {
+  .my-container {
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* Small */
+@media only screen and (max-width: 576px) {
+  .my-container {
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+  }
+}

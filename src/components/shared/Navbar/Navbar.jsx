@@ -37,7 +37,7 @@ const Navbar = () => {
         </>
       );
     return (
-<div className="bg-transparent mb-12">
+<nav className="bg-transparent mb-12 sticky top-0">
       <div className="container mx-auto navbar">
         <div className="navbar-start">
           <div className="dropdown">
@@ -84,7 +84,7 @@ const Navbar = () => {
           <p>A</p>
         </div>
       </div>
-    </div>
+    </nav>
     );
 };
 
