@@ -1,10 +1,12 @@
 import React from "react";
 import Header from "../../Header/Header";
+import ToysCategories from "../../ToysCategories/ToysCategories";
 
 const Home = () => {
   return (
-    <div>
+    <div className="container mx-auto">
       <Header />
+      <ToysCategories />
     </div>
   );
 };
