@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  margin: 0;
+  background-color: #0e0915;
+  color: #ffffff;
+  height: 100vh;
+  background-image: repeating-linear-gradient(
+      to right,
+      transparent 0 49px,
+      #eee1 49px 50px
+    ),
+    repeating-linear-gradient(to bottom, transparent 0 49px, #eee1 49px 50px);
+  opacity: 80;
+  &::before {
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    content: "";
+    background-image: linear-gradient(to right, #d02e23, #7a43b6);
+    z-index: -1;
+    top: -200px;
+    left: calc(50% - 200px);
+    border-radius: 50% 50% 0% 0%;
+    pointer-events: none;
+    filter: blur(250px);
+  }
+}
