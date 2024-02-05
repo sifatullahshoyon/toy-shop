@@ -9,12 +9,10 @@ import "swiper/css/pagination";
 import { EffectCoverflow, Pagination } from "swiper/modules";
 import "./Slider.css";
 import img1 from "../../assets/images/slider/1.jpg";
-import img2 from "../../assets/images/slider/2.jpg";
 import img3 from "../../assets/images/slider/3.jpg";
 import img4 from "../../assets/images/slider/4.jpg";
 import img5 from "../../assets/images/slider/5.jpg";
-import img6 from "../../assets/images/slider/6.jpg";
-import img7 from "../../assets/images/slider/7.jpg";
+import img8 from "../../assets/images/slider/8.jpg";
 import img11 from "../../assets/images/slider/11.jpg";
 import img12 from "../../assets/images/slider/12.jpg";
 import img13 from "../../assets/images/slider/13.jpg";
@@ -47,13 +45,13 @@ const Slider = () => {
           <img src={img12} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={img7} />
+          <img src={img8} />
         </SwiperSlide>
         <SwiperSlide>
           <img src={img1} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={img2} />
+          <img src={img5} />
         </SwiperSlide>
         <SwiperSlide>
           <img src={img16} />
@@ -71,7 +69,7 @@ const Slider = () => {
           <img src={img5} />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={img6} />
+          <img src={img16} />
         </SwiperSlide>
         <SwiperSlide>
           <img src={img15} />
