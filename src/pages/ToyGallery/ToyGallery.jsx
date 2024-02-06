@@ -21,7 +21,7 @@ const ToyGallery = () => {
       <h3 className="tracking-wide text-3xl pt-5 pb-10 text-center">
         Our Photo Gallery
       </h3>
-      <div className="toyGallery">
+      <div data-aos="fade-left" className="toyGallery">
         <div className="grid-container">
           {[...Array(Math.ceil(data.length / 7)).keys()].map((index) => (
             <div className="grid-column" key={index}>
