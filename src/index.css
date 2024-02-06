@@ -32,10 +32,9 @@
   }
 }
 
-.my-btn{
-  @apply border-2 border-white bg-transparent tracking-wide text-white capitalize hover:bg-transparent hover:border-white text-base
+.my-btn {
+  @apply border-2 border-white bg-transparent tracking-wide text-white capitalize hover:bg-transparent hover:border-white text-base;
 }
-
 
 /* Mobile Responsive:- */
 /* Extra large */
@@ -68,7 +67,7 @@
   .my-container {
     display: flex;
     flex-direction: column;
-    
+
     align-items: center;
   }
 }
