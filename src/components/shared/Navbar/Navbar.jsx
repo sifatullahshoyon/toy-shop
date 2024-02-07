@@ -10,7 +10,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link to="/" className="text-lg font-normal">
+            <Link to="/all-toy" className="text-lg font-normal">
             All Toys
             </Link>
           </li>

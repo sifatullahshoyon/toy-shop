@@ -17,7 +17,7 @@ const ToyGallery = () => {
     loadedData();
   }, []);
   return (
-    <section className="py-32 px-10 h-screen">
+    <section className="py-32 px-10 h-auto">
       <h3 className="tracking-wide text-3xl pt-5 pb-10 text-center">
         Our Photo Gallery
       </h3>

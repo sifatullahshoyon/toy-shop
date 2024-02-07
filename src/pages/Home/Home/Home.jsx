@@ -2,6 +2,8 @@ import React from "react";
 import Header from "../../Header/Header";
 import ToysCategories from "../../ToysCategories/ToysCategories";
 import ToyGallery from "../../ToyGallery/ToyGallery";
+import AllToy from "../OurHeros/OurHeros";
+import OurHeros from "../OurHeros/OurHeros";
 
 const Home = () => {
   return (
@@ -9,6 +11,7 @@ const Home = () => {
       <Header />
       <ToysCategories />
       <ToyGallery />
+      <OurHeros />
     </div>
   );
 };
