@@ -4,6 +4,7 @@ import ProductCart from "../../../components/ProductCart/ProductCart";
 import MarvelData from "../../../components/MarvelData/MarvelData";
 import DcData from "../../../components/DcData/DcData";
 import TransformersData from "../../../components/TransformersData/TransformersData";
+import StarWarsData from "../../../components/StarWarsData/StarWarsData";
 
 const OurHeros = () => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -71,6 +72,9 @@ const OurHeros = () => {
           </TabPanel>
           <TabPanel>
             <TransformersData />
+          </TabPanel>
+          <TabPanel>
+            <StarWarsData />
           </TabPanel>
         </Tabs>
       </div>
