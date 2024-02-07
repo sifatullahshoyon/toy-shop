@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import ProductCart from "../../../components/ProductCart/ProductCart";
 import MarvelData from "../../../components/MarvelData/MarvelData";
+import DcData from "../../../components/DcData/DcData";
+import TransformersData from "../../../components/TransformersData/TransformersData";
 
 const OurHeros = () => {
   const [tabIndex, setTabIndex] = useState(0);
@@ -38,8 +40,9 @@ const OurHeros = () => {
           <TabList>
             <Tab>All Toy</Tab>
             <Tab>Marvel</Tab>
-            <Tab>Star Wars</Tab>
+            <Tab>DC Comics</Tab>
             <Tab>Transformers</Tab>
+            <Tab>Star Wars</Tab>
           </TabList>
           <TabPanel>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-5">
@@ -60,9 +63,15 @@ const OurHeros = () => {
               )}
             </div>
           </TabPanel>
-          <TabPanel><MarvelData /></TabPanel>
-          <TabPanel>World</TabPanel>
-          <TabPanel>World</TabPanel>
+          <TabPanel>
+            <MarvelData />
+            </TabPanel>
+          <TabPanel>
+            <DcData />
+          </TabPanel>
+          <TabPanel>
+            <TransformersData />
+          </TabPanel>
         </Tabs>
       </div>
     </div>
