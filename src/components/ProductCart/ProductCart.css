@@ -1,8 +1,7 @@
-.card:hover  .viewDetails-btn{
-    visibility: visible;
-    
+.card:hover .viewDetails-btn {
+  visibility: visible;
 }
 
-.viewDetails-btn{
-    visibility: hidden;
+.viewDetails-btn {
+  visibility: hidden;
 }

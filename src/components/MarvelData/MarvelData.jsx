@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from "react";
 import ProductCart from "../ProductCart/ProductCart";
+import { useNavigation } from "react-router-dom";
+import Spinner from "../Spinner/Spinner";
 
 const MarvelData = () => {
   const [products, setProducts] = useState([]);
   const [visibleItems, setVisibleItems] = useState(8);
+  const navigation = useNavigation();
+
+  if(navigation.state === 'loading'){
+    return <Spinner />
+  };
 
   const handleSeeMoreClick = () => {
     setVisibleItems(products.length);

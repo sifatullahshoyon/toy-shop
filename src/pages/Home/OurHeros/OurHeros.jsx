@@ -5,11 +5,18 @@ import MarvelData from "../../../components/MarvelData/MarvelData";
 import DcData from "../../../components/DcData/DcData";
 import TransformersData from "../../../components/TransformersData/TransformersData";
 import StarWarsData from "../../../components/StarWarsData/StarWarsData";
+import { useNavigation } from "react-router-dom";
+import Spinner from "../../../components/Spinner/Spinner";
 
 const OurHeros = () => {
   const [tabIndex, setTabIndex] = useState(0);
   const [products, setProducts] = useState([]);
   const [visibleItems, setVisibleItems] = useState(8);
+  const navigation = useNavigation();
+
+  if(navigation.state === 'loading'){
+    return <Spinner />
+  };
 
   const handleSeeMoreClick = () => {
     setVisibleItems(products.length);

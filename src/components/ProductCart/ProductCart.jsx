@@ -1,6 +1,6 @@
 import React from "react";
 import ReactStarsRating from "react-awesome-stars-rating";
-import './ProductCart.css';
+import "./ProductCart.css";
 
 const ProductCart = ({ product }) => {
   const { _id, title, price, ratings, discountPrice, imgLink } = product;
@@ -9,17 +9,19 @@ const ProductCart = ({ product }) => {
   };
   return (
     <div>
-      <div data-aos="fade-up" className="card card-compact bg-inherit shadow-xl border border-white duration-150">
+      <div
+        data-aos="fade-up"
+        className="card card-compact bg-inherit shadow-xl border border-white duration-150"
+      >
         <figure className="relative">
           <img
             src={imgLink ? imgLink : "No Image Found"}
             alt="product img"
             className="h-96 pt-5 mx-auto object-cover px-2"
           />
- <div className="badge badge-success gap-2 text-white absolute top-4 left-10">
-
-  -{discountPrice?discountPrice : price}%
-</div>
+          <div className="badge badge-success gap-2 text-white absolute top-4 left-10">
+            -{discountPrice ? discountPrice : price}%
+          </div>
         </figure>
         <div className="card-body text-center">
           <h2 className="card-title mx-auto tracking-wide">
@@ -36,7 +38,9 @@ const ProductCart = ({ product }) => {
             />
           </div>
           <div className="card-actions justify-end">
-            <button className="btn viewDetails-btn bg-white text-[#37152C] hover:bg-transparent hover:text-white hover:border-white ">View Details</button>
+            <button className="btn viewDetails-btn bg-white text-[#37152C] hover:bg-transparent hover:text-white hover:border-white ">
+              View Details
+            </button>
           </div>
         </div>
       </div>
