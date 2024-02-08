@@ -14,8 +14,8 @@ const OurHeros = () => {
   const [visibleItems, setVisibleItems] = useState(8);
   const navigation = useNavigation();
 
-  if(navigation.state === 'loading'){
-    return <Spinner />
+  if (navigation.state === "loading") {
+    return <Spinner />;
   };
 
   const handleSeeMoreClick = () => {
@@ -73,7 +73,7 @@ const OurHeros = () => {
           </TabPanel>
           <TabPanel>
             <MarvelData />
-            </TabPanel>
+          </TabPanel>
           <TabPanel>
             <DcData />
           </TabPanel>

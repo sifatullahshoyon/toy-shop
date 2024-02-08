@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./ToyGallery.css";
+import { useNavigation } from "react-router-dom";
+import Spinner from "../../components/Spinner/Spinner";
 
 const ToyGallery = () => {
   const [data, setData] = useState([]);
+  const navigation = useNavigation();
+
+  if (navigation.state === "loading") {
+    return <Spinner />;
+  }
 
   useEffect(() => {
     const loadedData = async () => {
