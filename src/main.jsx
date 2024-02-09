@@ -7,11 +7,16 @@ import router from "./routers/Routes/Routes.jsx";
 import 'react-tabs/style/react-tabs.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import AuthProviders from "./providers/AuthProviders.jsx";
+import { Toaster } from "react-hot-toast";
 AOS.init();
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProviders>
+      <RouterProvider router={router} />
+      <Toaster />
+    </AuthProviders>
   </React.StrictMode>
 );
