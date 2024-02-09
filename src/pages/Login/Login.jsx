@@ -21,7 +21,7 @@ const Login = () => {
         <div className="sm:w-full sm:px-2 md:w-full lg:w-6/12 md:my-5">
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="bg-white rounded text-center"
+            className="bg-white rounded text-center shadow-xl"
           >
             <h3 className="text-3xl py-10 text-coustom font-bold tracking-wide">
               Login
@@ -33,6 +33,8 @@ const Login = () => {
               {...register("firstName")}
               placeholder="Enter Your Email Address"
               className="mb-5"
+              type="email"
+              required
             />
             <label className="block text-coustom text-left lg:px-11 px-2 mb-2">
               Password
@@ -41,13 +43,16 @@ const Login = () => {
               {...register("firstName")}
               placeholder="Enter Your Password"
               className="mb-3"
+              type="password"
+              required
             />
             <p className="text-coustom text-left lg:pl-11 pl-2 pb-7 underline">
               Forgot Password?
             </p>
             <input
               type="submit"
-              className="btn bg-coustom text-white tracking-wide hover:bg-coustom cursor-pointer mb-3"
+              className="btn bg-coustom text-white tracking-wide hover:bg-coustom cursor-pointer mb-3 text-lg"
+              value='Login'
             />
             <p className="text-gray-600">
               New to Toy Shop?{" "}
@@ -58,7 +63,7 @@ const Login = () => {
             <div className="divider text-coustom px-10 py-5">OR</div>
             <div className="px-10 pb-7">
               <button className="btn bg-transparent text-coustom border-coustom hover:bg-transparent hover:border-coustom w-full text-lg">
-                <FcGoogle className="text-xl" /> Google
+                <FcGoogle className="text-xl cursor-pointer" /> Google
               </button>
             </div>
           </form>
