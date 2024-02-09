@@ -1,6 +1,8 @@
 import React from "react";
 
-const ToyTable = ({ product, index }) => {
+
+const ToyTable = ({ product, index}) => {
+    let number = 1;
   const {
     _id,
     availableQuantity,
@@ -10,7 +12,8 @@ const ToyTable = ({ product, index }) => {
     title,
     seller,
   } = product;
-  let number = 1;
+
+  
   return (
     <tr className="text-center">
       <th>{number + index}</th>
@@ -29,7 +32,7 @@ const ToyTable = ({ product, index }) => {
       <td>${price ? price : "Data Not Found"}</td>
       <td>{availableQuantity ? availableQuantity : "Data Not Found"}</td>
       <td>
-        <button className="btn my-btn ">View Details</button>
+        <label htmlFor="my_modal_6" className="btn my-btn">View Details</label>
       </td>
     </tr>
   );

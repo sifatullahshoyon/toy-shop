@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+    const user = {};
     const navItem = (
         <>
           <li>
@@ -29,11 +30,7 @@ const Navbar = () => {
             Blogs
             </Link>
           </li>
-          <li>
-            <Link to="/login" className="text-lg font-normal">
-              Contact
-            </Link>
-          </li>
+          
         </>
       );
     return (
@@ -72,16 +69,19 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navItem}</ul>
         </div>
         <div className="navbar-end">
-          {/* <FiShoppingBag className="text-2xl text-my-gray mr-5" />
-          <IoSearchOutline className="text-2xl text-my-gray mr-5" />
-          <button className="btn btn-outline btn-error">Appointment</button>
+          {/* <FiShoppingBag className="text-2xl text-my-gray mr-5" /> */}
+          {/* <IoSearchOutline className="text-2xl text-my-gray mr-5" /> */}
+          
           <div className="ml-2">
           {user?.email ? <>
-          <button className="btn btn-info mr-2"><Link to='/bookings'>My Bookings</Link></button>
-            <button onClick={handleSignOut} className="btn btn-primary">Log out </button>
-          </> : <button className="btn btn-primary"><Link to='/login'>Sign In</Link></button>}
-          </div> */}
-          <p>A</p>
+            <button onClick={handleSignOut} className="btn my-btn">Sign out </button>
+          </> : <button className="btn my-btn"><Link to='/login'>Sign In</Link></button>}
+          </div>
+          <li>
+            {/* <Link to="/login" className="text-lg font-normal">
+              Contact
+            </Link> */}
+          </li>
         </div>
       </div>
     </nav>

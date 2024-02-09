@@ -1,0 +1,74 @@
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+form {
+  width: 500px;
+}
+
+input {
+  width: 415px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #d9dce1;
+  color: #37152c;
+  outline: none;
+  display: inline-block;
+}
+
+input::placeholder {
+  color: #37152ca1;
+}
+
+/* Mobile Responsive:- */
+
+/* Extra large */
+@media only screen and (max-width: 1200px) {
+  form {
+    width: 500px;
+  }
+  input {
+    width: 415px;
+  }
+}
+
+/* large */
+@media only screen and (max-width: 992px) {
+  form {
+    width: 400px;
+  }
+  input {
+    width: 90%;
+  }
+}
+
+/* Medium */
+@media only screen and (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+  }
+  form {
+    width: 400px;
+  }
+  input {
+    width: 90%;
+  }
+}
+
+/* Small */
+@media only screen and (max-width: 576px) {
+  .flex-container {
+    flex-direction: column;
+  }
+  form {
+    width: 250px;
+  }
+  input {
+    width: 90%;
+    /* margin: 0 5px; */
+  }
+}

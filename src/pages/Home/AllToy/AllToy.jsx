@@ -9,20 +9,21 @@ const AllToy = () => {
 
   if (navigation.state === "loading") {
     return <Spinner />;
-  }
+  };
+
 
   useEffect(() => {
     try {
       fetch("http://localhost:5000/products")
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           setProducts(data);
         });
     } catch (error) {
       console.error(error);
     }
   }, []);
+
   return (
     <div className="container mx-auto py-10 px-10">
       <h3 className="tracking-wide text-3xl py-5 text-center">All Toys</h3>
@@ -41,7 +42,7 @@ const AllToy = () => {
           </div>
         </div>
         <div className="indicator">
-          <button className="btn join-item bg-white hover:bg-white text-[#37152C] hover:text-[#37152C]">
+          <button className="btn join-item bg-white hover:bg-white text-coustom hover:text-coustom">
             Search
           </button>
         </div>
@@ -50,7 +51,7 @@ const AllToy = () => {
       <div className="overflow-x-auto pt-10 pb-5">
         <table className="w-full">
           {/* head */}
-          <thead className="bg-white text-[#37152C]">
+          <thead className="bg-white text-coustom">
             <tr className="">
               <th className="p-4">SL Number</th>
               <th className="p-4">Image</th>

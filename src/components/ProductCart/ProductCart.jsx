@@ -38,7 +38,7 @@ const ProductCart = ({ product }) => {
             />
           </div>
           <div className="card-actions justify-end">
-            <button className="btn viewDetails-btn bg-white text-[#37152C] hover:bg-transparent hover:text-white hover:border-white ">
+            <button className="btn viewDetails-btn bg-white text-coustom hover:bg-transparent hover:text-white hover:border-white ">
               View Details
             </button>
           </div>
