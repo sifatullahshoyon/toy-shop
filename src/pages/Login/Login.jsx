@@ -10,7 +10,7 @@ import { Bounce, toast } from "react-toastify";
 
 
 const Login = () => {
-    const {signIn} = useContext(AuthContext);
+    const {signIn , googleLogin} = useContext(AuthContext);
     const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     const email = data.email;
@@ -19,7 +19,7 @@ const Login = () => {
     signIn(email , password)
   .then((result) => {
     const loggedUser = result.user;
-    console.log(loggedUser);
+    form.reset();
     toast.success('Login Successfully 😊', {
         position: "top-center",
         autoClose: 5000,
@@ -47,6 +47,36 @@ const Login = () => {
    })
   };
 
+  const handleGoogleLogin = () => {
+    googleLogin()
+    .then((result) => {
+        const loggedUser = result.user;
+        toast.success('User Create Successfully 😊', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+            });
+    })
+    .catch((error) => {
+        toast.error(error.message , {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+            });
+    })
+};
   
   return (
     <div className="container mx-auto p-10">
@@ -100,7 +130,7 @@ const Login = () => {
             </p>
             <div className="divider text-coustom px-10 py-5">OR</div>
             <div className="px-10 pb-7">
-              <button className="btn bg-transparent text-coustom border-coustom hover:bg-transparent hover:border-coustom w-full text-lg">
+              <button onClick={handleGoogleLogin } className="btn bg-transparent text-coustom border-coustom hover:bg-transparent hover:border-coustom w-full text-lg">
                 <FcGoogle className="text-xl cursor-pointer" /> Google
               </button>
             </div>

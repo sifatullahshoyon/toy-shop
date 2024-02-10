@@ -8,16 +8,15 @@ import { AuthContext } from "../../providers/AuthProviders";
 import { Bounce, toast } from "react-toastify";
 
 
-
 const Registration = () => {
-    const {createUser} = useContext(AuthContext);
+    const {createUser , googleLogin} = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     const name = data.name;
     const url = data.photoUrl;
     const email = data.email;
     const password = data.password;
-   
+    
 
     // Password Validation
     if(!/(?=.*?[a-z])/.test(password)){
@@ -37,10 +36,12 @@ const Registration = () => {
         return;
     }
 
+    
+
     createUser(email , password)
     .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+       
         toast.success('User Create Successfully 😊', {
             position: "top-center",
             autoClose: 5000,
@@ -67,6 +68,36 @@ const Registration = () => {
             });
     })
   };
+  const handleGoogleLogin = () => {
+    googleLogin()
+    .then((result) => {
+        const loggedUser = result.user;
+        toast.success('User Create Successfully 😊', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+            });
+    })
+    .catch((error) => {
+        toast.error(error.message , {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+            });
+    })
+};
   return (
     <div className="container mx-auto p-10">
       <div className="flex-container">
@@ -139,7 +170,7 @@ const Registration = () => {
             </p>
             <div className="divider text-coustom px-10 py-5">OR</div>
             <div className="px-10 pb-7">
-              <button className="btn bg-transparent text-coustom border-coustom hover:bg-transparent hover:border-coustom w-full text-lg">
+              <button onClick={handleGoogleLogin} className="btn bg-transparent text-coustom border-coustom hover:bg-transparent hover:border-coustom w-full text-lg">
                 <FcGoogle className="text-xl cursor-pointer" /> Google
               </button>
             </div>
