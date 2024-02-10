@@ -9,8 +9,7 @@ const AllToy = () => {
 
   if (navigation.state === "loading") {
     return <Spinner />;
-  };
-
+  }
 
   useEffect(() => {
     try {
@@ -36,7 +35,7 @@ const AllToy = () => {
         <div>
           <div className="form-control ">
             <input
-              className="input input-bordered join-item bg-transparent text-white border-white focus:border-white tracking-wide"
+              className="input input-bordered join-item bg-transparent footer-input text-white tracking-wide"
               placeholder="Search By Name"
             />
           </div>
