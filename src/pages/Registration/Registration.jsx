@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext} from "react";
 import registration from "/public/animation/registration.json";
 import Lottie from "lottie-react";
 import { useForm } from "react-hook-form";
@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../providers/AuthProviders";
 import { Bounce, toast } from "react-toastify";
+
+
 
 const Registration = () => {
     const {createUser} = useContext(AuthContext);
@@ -15,8 +17,26 @@ const Registration = () => {
     const url = data.photoUrl;
     const email = data.email;
     const password = data.password;
-    const user = {name , url , email , password};
-    // console.log(user);
+   
+
+    // Password Validation
+    if(!/(?=.*?[a-z])/.test(password)){
+        toast.error('Please Enter Min 1 uppercase letter');
+        return;
+    }
+    else if(!/(?=.*?[A-Z])/.test(password)){
+        toast.error('Please Enter Min 1 uppercase letter');
+        return;
+    }
+    else if(!/(?=.*?[0-9])/.test(password)){
+        toast.error('Please Enter At least one digit');
+        return;
+    }
+    else if(!/.{8,}/.test(password)){
+        toast.error('Password Minimum eight in length');
+        return;
+    }
+
     createUser(email , password)
     .then((result) => {
         const loggedUser = result.user;
@@ -103,7 +123,7 @@ const Registration = () => {
               {...register("password")}
               placeholder="Enter Your Password"
               className="mb-7"
-              type="password"
+              type='password'
               required
             />
             <input
