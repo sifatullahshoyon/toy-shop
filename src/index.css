@@ -32,11 +32,21 @@
   }
 }
 
+.active {
+  @apply  text-white font-bold uppercase tracking-wide duration-200 text-xl;
+}
+
+.default {
+  @apply  text-white uppercase font-medium tracking-wide duration-200 text-xl;
+}
+
 .my-btn {
   @apply border-2 border-white bg-transparent tracking-wide text-white capitalize hover:bg-transparent hover:border-white text-base;
 }
 
+
 /* Mobile Responsive:- */
+
 /* Extra large */
 @media only screen and (max-width: 1200px) {
   .my-container {

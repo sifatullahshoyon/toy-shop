@@ -1,13 +1,52 @@
-import React from "react";
+import React, { useContext } from "react";
 import registration from "/public/animation/registration.json";
 import Lottie from "lottie-react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from "../../providers/AuthProviders";
+import { Bounce, toast } from "react-toastify";
 
 const Registration = () => {
+    const {createUser} = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const name = data.name;
+    const url = data.photoUrl;
+    const email = data.email;
+    const password = data.password;
+    const user = {name , url , email , password};
+    // console.log(user);
+    createUser(email , password)
+    .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        toast.success('User Create Successfully 😊', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+            });
+    })
+    .catch((error) => {
+        toast.error(error.message , {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+            });
+    })
+  };
   return (
     <div className="container mx-auto p-10">
       <div className="flex-container">
@@ -32,7 +71,7 @@ const Registration = () => {
               Name
             </label>
             <input
-              {...register("firstName")}
+              {...register("name")}
               placeholder="Your Name"
               className="mb-5"
               type="text"
@@ -42,7 +81,7 @@ const Registration = () => {
               Photo Url
             </label>
             <input
-              {...register("firstName")}
+              {...register("photoUrl")}
               placeholder="Image Link"
               className="mb-5"
               type="url"
@@ -51,7 +90,7 @@ const Registration = () => {
               Email
             </label>
             <input
-              {...register("firstName")}
+              {...register("email")}
               placeholder="Enter Your Email Address"
               className="mb-5"
               type="email"
@@ -61,7 +100,7 @@ const Registration = () => {
               Password
             </label>
             <input
-              {...register("firstName")}
+              {...register("password")}
               placeholder="Enter Your Password"
               className="mb-7"
               type="password"

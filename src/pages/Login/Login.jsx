@@ -1,15 +1,53 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Login.css";
 import login from "/public/animation/login.json";
 import Lottie from "lottie-react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from "../../providers/AuthProviders";
+import { Bounce, toast } from "react-toastify";
+
 
 const Login = () => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+    const {signIn} = useContext(AuthContext);
+    const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => {
+    const email = data.email;
+    const password = data.password;
+   
+    signIn(email , password)
+  .then((result) => {
+    const loggedUser = result.user;
+    console.log(loggedUser);
+    toast.success('Login Successfully 😊', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+        });
+   })
+   .catch((error) => {
+    toast.error(error.message , {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+        });
+   })
+  };
 
+  
   return (
     <div className="container mx-auto p-10">
       <div className="flex-container">
@@ -30,7 +68,7 @@ const Login = () => {
               Email
             </label>
             <input
-              {...register("firstName")}
+              {...register("email")}
               placeholder="Enter Your Email Address"
               className="mb-5"
               type="email"
@@ -40,7 +78,7 @@ const Login = () => {
               Password
             </label>
             <input
-              {...register("firstName")}
+              {...register("password")}
               placeholder="Enter Your Password"
               className="mb-3"
               type="password"
