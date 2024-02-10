@@ -6,6 +6,7 @@ import AllToy from "../../pages/Home/AllToy/AllToy";
 import SubMainLayout from "../../Layout/SubMainLayout";
 import Registration from "../../pages/Registration/Registration";
 import Login from "../../pages/Login/Login";
+import Blog from "../../pages/Home/Blog/Blog";
 
 
 
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
             {
                 path : '/login',
                 element : <Login />
+            },
+            {
+                path : '/blog',
+                element : <Blog />
             }
         ]
     }

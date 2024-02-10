@@ -10,7 +10,7 @@ const MainLayout = () => {
     <>
       <Appbar />
       <Navbar />
-      <div className="min-h-[calc(100vh - 469px)]">
+      <div className="min-h-[calc(100vh-469px)]">
         <Outlet />
       </div>
       <Footer />
