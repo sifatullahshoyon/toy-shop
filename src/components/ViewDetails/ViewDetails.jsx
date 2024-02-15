@@ -1,8 +1,14 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigation } from "react-router-dom";
 import ReactStarsRating from "react-awesome-stars-rating";
+import Spinner from "../Spinner/Spinner";
 
 const ViewDetails = () => {
+  const navigation = useNavigation();
+
+  if (navigation.state === "loading") {
+    return <Spinner />;
+  }
   const data = useLoaderData();
   const {
     availableQuantity,

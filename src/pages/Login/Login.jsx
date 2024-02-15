@@ -8,76 +8,75 @@ import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../providers/AuthProviders";
 import { Bounce, toast } from "react-toastify";
 
-
 const Login = () => {
-    const {signIn , googleLogin} = useContext(AuthContext);
-    const { register, handleSubmit } = useForm();
+  const { signIn, googleLogin } = useContext(AuthContext);
+  const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     const email = data.email;
     const password = data.password;
-   
-    signIn(email , password)
-  .then((result) => {
-    const loggedUser = result.user;
-    form.reset();
-    toast.success('Login Successfully 😊', {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
+
+    signIn(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        form.reset();
+        toast.success("Login Successfully 😊", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
         });
-   })
-   .catch((error) => {
-    toast.error(error.message , {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
+      })
+      .catch((error) => {
+        toast.error(error.message, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
         });
-   })
+      });
   };
 
   const handleGoogleLogin = () => {
     googleLogin()
-    .then((result) => {
+      .then((result) => {
         const loggedUser = result.user;
-        toast.success('User Create Successfully 😊', {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            transition: Bounce,
-            });
-    })
-    .catch((error) => {
-        toast.error(error.message , {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-            transition: Bounce,
-            });
-    })
-};
-  
+        toast.success("User Create Successfully 😊", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+      })
+      .catch((error) => {
+        toast.error(error.message, {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
+      });
+  };
+
   return (
     <div className="container mx-auto p-10">
       <div className="flex-container">
@@ -120,7 +119,7 @@ const Login = () => {
             <input
               type="submit"
               className="btn bg-coustom text-white tracking-wide hover:bg-coustom cursor-pointer mb-3 text-lg"
-              value='Login'
+              value="Login"
             />
             <p className="text-gray-600">
               New to Toy Shop?{" "}
@@ -130,7 +129,10 @@ const Login = () => {
             </p>
             <div className="divider text-coustom px-10 py-5">OR</div>
             <div className="px-10 pb-7">
-              <button onClick={handleGoogleLogin } className="btn bg-transparent text-coustom border-coustom hover:bg-transparent hover:border-coustom w-full text-lg">
+              <button
+                onClick={handleGoogleLogin}
+                className="btn bg-transparent text-coustom border-coustom hover:bg-transparent hover:border-coustom w-full text-lg"
+              >
                 <FcGoogle className="text-xl cursor-pointer" /> Google
               </button>
             </div>
