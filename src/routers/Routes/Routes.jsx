@@ -7,6 +7,7 @@ import SubMainLayout from "../../Layout/SubMainLayout";
 import Registration from "../../pages/Registration/Registration";
 import Login from "../../pages/Login/Login";
 import Blog from "../../pages/Home/Blog/Blog";
+import ViewDetails from "../../components/ViewDetails/ViewDetails";
 
 
 
@@ -46,6 +47,11 @@ const router = createBrowserRouter([
             {
                 path : '/blog',
                 element : <Blog />
+            },
+            {
+                path : '/details/:id',
+                element : <ViewDetails />,
+                loader : ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
             }
         ]
     }

@@ -3,6 +3,7 @@ import { useNavigation } from "react-router-dom";
 import Spinner from "../../../components/Spinner/Spinner";
 import ToyTable from "../../../components/ToyTable/ToyTable";
 
+
 const AllToy = () => {
   const [products, setProducts] = useState([]);
   const navigation = useNavigation();
@@ -63,9 +64,7 @@ const AllToy = () => {
             </tr>
           </thead>
           <tbody>
-            {products?.map((product, index) => (
-              <ToyTable key={product._id} product={product} index={index} />
-            ))}
+            {products?.map((product, index) => (<ToyTable key={product._id} product={product} index={index} />))}
           </tbody>
         </table>
       </div>
