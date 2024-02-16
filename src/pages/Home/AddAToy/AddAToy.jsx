@@ -36,7 +36,7 @@ const AddAToy = () => {
       detail,
       imgUrl,
     };
-    console.log( toyCategory);
+    console.log( userInfo);
 
     try {
       fetch("http://localhost:5000/add-toy", {

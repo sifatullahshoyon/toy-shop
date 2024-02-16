@@ -9,6 +9,7 @@ import Login from "../../pages/Login/Login";
 import Blog from "../../pages/Home/Blog/Blog";
 import ViewDetails from "../../components/ViewDetails/ViewDetails";
 import AddAToy from "../../pages/Home/AddAToy/AddAToy";
+import MyToys from "../../pages/Home/MyToys/MyToys";
 
 
 
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
             {
                 path : '/add-a-toy',
                 element : <AddAToy />
+            },
+            {
+                path : '/my-toy',
+                element : <MyToys />
             }
         ]
     }

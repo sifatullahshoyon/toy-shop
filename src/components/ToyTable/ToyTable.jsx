@@ -28,7 +28,7 @@ const ToyTable = ({ product, index }) => {
         <td>
           <>
             <Link to={`/details/${_id}`}>
-              <button className="btn my-btn">x</button>
+              <button className="btn my-btn">View Details</button>
             </Link>
           </>
         </td>
