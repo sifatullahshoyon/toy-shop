@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const ToyTable = ({ product, index }) => {
   let number = 1;
-  const { _id, availableQuantity, category, imgLink, price, title, seller } =
+  const { _id, availableQuantity, category , imgLink, price, title, seller } =
     product;
-
+  console.log(JSON.stringify(product.category))
   return (
     <>
       <tr className="text-center">
@@ -21,7 +21,8 @@ const ToyTable = ({ product, index }) => {
         </td>
         <td>{seller?.name ? seller?.name : "Data Not Found"}</td>
         <td>{title ? title : "Data Not Found"}</td>
-        <td>{category ? category : "Data Not Found"}</td>
+        {/* <td>{category ? category : "Data Not Found"}</td> */}
+        <td>{JSON.stringify(category) ? JSON.stringify(category) : "Data Not Found"}</td>
         <td>${price ? price : "Data Not Found"}</td>
         <td>{availableQuantity ? availableQuantity : "Data Not Found"}</td>
         <td>

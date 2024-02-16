@@ -1,5 +1,5 @@
 import React, { useContext} from "react";
-import registration from "/public/animation/registration.json";
+import registration from "../../../public/animation/registration.json";
 import Lottie from "lottie-react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";

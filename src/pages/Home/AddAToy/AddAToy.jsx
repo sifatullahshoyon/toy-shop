@@ -1,66 +1,65 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { AuthContext } from '../../../providers/AuthProviders';
-import Select from 'react-select';
+import { AuthContext } from "../../../providers/AuthProviders";
+import Select from "react-select";
+import { toast } from "react-toastify";
 
 const AddAToy = () => {
-    const [selectedOption, setSelectedOption] = useState(null);
-    const {user} = useContext(AuthContext);
-    const { register, handleSubmit } = useForm();
-    const options = [
-        { value: 'marvel', label: 'Marvel' },
-        { value: 'dc comics', label: 'DC Comics' },
-        { value: 'transformers', label: 'transformers' },
-        { value: 'star wars', label: 'star wars' },
-      ];
+  const [selectedOption, setSelectedOption] = useState(null);
+  const { user } = useContext(AuthContext);
+  const { register, handleSubmit } = useForm();
+  const options = [
+    { value: "marvel", label: "Marvel" },
+    { value: "dc comics", label: "DC Comics" },
+    { value: "transformers", label: "transformers" },
+    { value: "star wars", label: "star wars" },
+  ];
   const onSubmit = (data) => {
-    data.category = selectedOption;
+    data.toyCategory = selectedOption;
     const toyName = data.toyName;
-    const sellerName = data.sellerName
+    const sellerName = data.sellerName;
     const sellereEmail = data.sellerEmail;
     const price = data.price;
-    const category = data.category;
+    const toyCategory = data.category;
     const reating = data.rating;
     const quantity = data.quantity;
     const detail = data.detail;
     const imgUrl = data.ImgLink;
-    const userInfo = {toyName , sellerName , sellereEmail , price , category , reating , quantity , detail , imgUrl};
-    console.log(userInfo);
-   
-//     signIn(email , password)
-//   .then((result) => {
-//     const loggedUser = result.user;
-//     form.reset();
-//     toast.success('Login Successfully 😊', {
-//         position: "top-center",
-//         autoClose: 5000,
-//         hideProgressBar: false,
-//         closeOnClick: true,
-//         pauseOnHover: true,
-//         draggable: true,
-//         progress: undefined,
-//         theme: "light",
-//         transition: Bounce,
-//         });
-//    })
-//    .catch((error) => {
-//     toast.error(error.message , {
-//         position: "top-center",
-//         autoClose: 5000,
-//         hideProgressBar: false,
-//         closeOnClick: true,
-//         pauseOnHover: true,
-//         draggable: true,
-//         progress: undefined,
-//         theme: "light",
-//         transition: Bounce,
-//         });
-//    })
+    const userInfo = {
+      toyName,
+      sellerName,
+      sellereEmail,
+      price,
+      toyCategory,
+      reating,
+      quantity,
+      detail,
+      imgUrl,
+    };
+    console.log( toyCategory);
+
+    try {
+      fetch("http://localhost:5000/add-toy", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(userInfo),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.insertedId) {
+            toast.success("Add Toy Successfully");
+          }
+        });
+    } catch (error) {
+      console.error(error.message);
+    }
+
+    
   };
-    return (
-        <div className="container mx-auto p-10">
+  return (
+    <div className="container mx-auto p-10">
       <div className="flex-container">
-        
         <div>
           <form
             onSubmit={handleSubmit(onSubmit)}
@@ -125,14 +124,13 @@ const AddAToy = () => {
               Category
             </label>
             <Select
-            
-        defaultValue={selectedOption}
-        onChange={setSelectedOption}
-        options={options}
-        className='w-10/12 mx-auto'
-      />
+              defaultValue={selectedOption}
+              onChange={setSelectedOption}
+              options={options}
+              className="w-10/12 mx-auto"
+            />
             <label className="block text-coustom text-left lg:px-11 px-2 mb-2">
-                Rating
+              Rating
             </label>
             <input
               {...register("rating")}
@@ -142,7 +140,7 @@ const AddAToy = () => {
               required
             />
             <label className="block text-coustom text-left lg:px-11 px-2 mb-2">
-            Available quantity
+              Available quantity
             </label>
             <input
               {...register("quantity")}
@@ -152,7 +150,7 @@ const AddAToy = () => {
               required
             />
             <label className="block text-coustom text-left lg:px-11 px-2 mb-2">
-            Detail 
+              Detail
             </label>
             <input
               {...register("detail")}
@@ -161,19 +159,17 @@ const AddAToy = () => {
               type="text"
               required
             />
-            
-            
+
             <input
               type="submit"
               className="btn bg-coustom text-white tracking-wide hover:bg-coustom cursor-pointer mb-5 text-lg"
               value="Add Toy"
             />
-            
           </form>
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default AddAToy;

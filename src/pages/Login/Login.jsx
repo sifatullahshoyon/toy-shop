@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "./Login.css";
-import login from "/public/animation/login.json";
+import login from "../../../public/animation/login.json";
 import Lottie from "lottie-react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
