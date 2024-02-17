@@ -10,6 +10,7 @@ import Blog from "../../pages/Home/Blog/Blog";
 import ViewDetails from "../../components/ViewDetails/ViewDetails";
 import AddAToy from "../../pages/Home/AddAToy/AddAToy";
 import MyToys from "../../pages/Home/MyToys/MyToys";
+import UpdatedToy from "../../pages/UpdatedToy/UpdatedToy";
 
 
 
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
             {
                 path : '/my-toy',
                 element : <MyToys />
+            },
+            {
+                path : '/updatedToy/:id',
+                element : <UpdatedToy />
             }
         ]
     }

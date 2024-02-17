@@ -30,6 +30,7 @@
     "react-toastify": "^10.0.4",
     "rsuite-table": "^5.18.2",
     "sort-by": "^1.2.0",
+    "sweetalert2": "^11.10.5",
     "swiper": "^11.0.6"
   },
   "devDependencies": {
