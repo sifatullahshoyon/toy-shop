@@ -3,8 +3,14 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../providers/AuthProviders";
 import Select from "react-select";
 import { toast } from "react-toastify";
+import { useNavigation } from "react-router-dom";
 
 const AddAToy = () => {
+    const navigation = useNavigation();
+
+  if (navigation.state === "loading") {
+    return <Spinner />;
+  }
   const [selectedOption, setSelectedOption] = useState(null);
   const { user } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();

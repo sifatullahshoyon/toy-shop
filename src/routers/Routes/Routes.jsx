@@ -11,6 +11,7 @@ import ViewDetails from "../../components/ViewDetails/ViewDetails";
 import AddAToy from "../../pages/Home/AddAToy/AddAToy";
 import MyToys from "../../pages/Home/MyToys/MyToys";
 import UpdatedToy from "../../pages/UpdatedToy/UpdatedToy";
+import PrivetRoutes from "../PrivateRoutes";
 
 
 
@@ -53,12 +54,12 @@ const router = createBrowserRouter([
             },
             {
                 path : '/details/:id',
-                element : <ViewDetails />,
+                element : <PrivetRoutes><ViewDetails /></PrivetRoutes>,
                 loader : ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
             },
             {
                 path : '/add-a-toy',
-                element : <AddAToy />
+                element : <PrivetRoutes><AddAToy /></PrivetRoutes>
             },
             {
                 path : '/my-toy',

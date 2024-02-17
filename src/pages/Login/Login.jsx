@@ -3,13 +3,16 @@ import "./Login.css";
 import login from "../../../public/animation/login.json";
 import Lottie from "lottie-react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../providers/AuthProviders";
 import { Bounce, toast } from "react-toastify";
 
 const Login = () => {
   const { signIn, googleLogin } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || '/';
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     const email = data.email;
@@ -18,6 +21,7 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const loggedUser = result.user;
+        navigate(from , {replace : true})
         form.reset();
         toast.success("Login Successfully 😊", {
           position: "top-center",

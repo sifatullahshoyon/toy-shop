@@ -1,8 +1,14 @@
 import React from "react";
 import ReactStarsRating from "react-awesome-stars-rating";
 import "./ProductCart.css";
+import { Link, useNavigation } from "react-router-dom";
+import Spinner from "../Spinner/Spinner";
 
 const ProductCart = ({ product }) => {
+  const { state } = useNavigation();
+  if (state === "loading") {
+    return <Spinner />;
+  }
   const { _id, title, price, ratings, discountPrice, imgLink } = product;
   const onChange = (value) => {
     console.log(`React Stars Rating value is ${value}`);
@@ -38,9 +44,11 @@ const ProductCart = ({ product }) => {
             />
           </div>
           <div className="card-actions justify-end">
+            <Link to={`/details/${_id}`}>
             <button className="btn viewDetails-btn bg-white text-coustom hover:bg-transparent hover:text-white hover:border-white ">
               View Details
             </button>
+            </Link>
           </div>
         </div>
       </div>
