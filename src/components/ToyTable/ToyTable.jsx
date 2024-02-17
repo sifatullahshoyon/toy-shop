@@ -1,7 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigation } from "react-router-dom";
+import Spinner from "../Spinner/Spinner";
 
 const ToyTable = ({ product, index }) => {
+  const navigation = useNavigation();
+
+  if (navigation.state === "loading") {
+    return <Spinner />;
+  }
   let number = 1;
   const { _id, availableQuantity, category , imgLink, price, title, seller } =
     product;
