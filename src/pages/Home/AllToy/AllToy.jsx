@@ -7,14 +7,30 @@ import ToyTable from "../../../components/ToyTable/ToyTable";
 const AllToy = () => {
   const [products, setProducts] = useState([]);
   const navigation = useNavigation();
+  const [searchText , setSearchText] = useState('');
 
   if (navigation.state === "loading") {
     return <Spinner />;
-  }
+  };
+
+  const handleSearchText = () => {
+    useEffect(() => {
+      try {
+        fetch(`https://toy-shop-server-omvngpqyq-sifat-ullah-shoyons-projects.vercel.app/getToyByText/${searchText}`)
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          setProducts(data);
+        })
+      } catch (error) {
+        console.error(error);
+      }
+    } , []);
+  };
 
   useEffect(() => {
     try {
-      fetch("http://localhost:5000/products")
+      fetch("https://toy-shop-server-omvngpqyq-sifat-ullah-shoyons-projects.vercel.app/products")
         .then((res) => res.json())
         .then((data) => {
           setProducts(data);
@@ -36,13 +52,14 @@ const AllToy = () => {
         <div>
           <div className="form-control ">
             <input
+            onChange={(e) => setSearchText(e.target.value)}
               className="input input-bordered join-item bg-transparent footer-input text-white tracking-wide"
               placeholder="Search By Name"
             />
           </div>
         </div>
         <div className="indicator">
-          <button className="btn join-item bg-white hover:bg-white text-coustom hover:text-coustom">
+          <button onClick={handleSearchText} className="btn join-item bg-white hover:bg-white text-coustom hover:text-coustom">
             Search
           </button>
         </div>

@@ -8,7 +8,7 @@ const MyToys = () => {
     
     useEffect(() => {
         try {
-            fetch(`http://localhost:5000/my-toys/${user?.email}`)
+            fetch(`https://toy-shop-server-omvngpqyq-sifat-ullah-shoyons-projects.vercel.app/my-toys/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);

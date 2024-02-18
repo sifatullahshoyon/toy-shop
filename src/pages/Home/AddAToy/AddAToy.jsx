@@ -45,7 +45,7 @@ const AddAToy = () => {
     console.log( userInfo);
 
     try {
-      fetch("http://localhost:5000/add-toy", {
+      fetch("https://toy-shop-server-omvngpqyq-sifat-ullah-shoyons-projects.vercel.app/add-toy", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userInfo),

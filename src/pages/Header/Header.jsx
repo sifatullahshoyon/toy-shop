@@ -6,9 +6,10 @@ const Header = () => {
     <header className="container mx-auto lg:px-10">
       <div
         data-aos="fade-right"
-        className="my-container flex sm:flex-col md:flex-col lg:flex-row justify-center items-center"
+        className="flex  flex-col md:flex-col lg:flex-row justify-center items-center"
       >
-        <div className="md:w-1/2">
+        <div className="w-1/2">
+          <div className="w-full">
           <h1 className="capitalize text-7xl mb-8 tracking-wide leading-none">
             exclusive toys <br /> special offer
           </h1>
@@ -18,9 +19,12 @@ const Header = () => {
             child-safe
           </p>
           <button className="btn my-btn">shop now</button>
+          </div>
         </div>
-        <div className="md:w-1/2 ">
+        <div className="w-1/2 ">
+          <div className="w-full">
           <Slider />
+          </div>
         </div>
       </div>
     </header>

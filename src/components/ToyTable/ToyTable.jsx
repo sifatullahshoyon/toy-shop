@@ -11,7 +11,6 @@ const ToyTable = ({ product, index }) => {
   let number = 1;
   const { _id, availableQuantity, category , imgLink, price, title, seller } =
     product;
-  console.log(JSON.stringify(product.category))
   return (
     <>
       <tr className="text-center">

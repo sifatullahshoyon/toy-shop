@@ -22,7 +22,7 @@ const StarWarsData = () => {
 
   useEffect(() => {
     try {
-      fetch("http://localhost:5000/star-wars")
+      fetch("https://toy-shop-server-omvngpqyq-sifat-ullah-shoyons-projects.vercel.app/star-wars")
         .then((res) => res.json())
         .then((data) => {
           setProducts(data);

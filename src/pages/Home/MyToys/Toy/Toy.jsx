@@ -9,7 +9,27 @@ const Toy = ({toy , index}) => {
     let number = 1;
   const { _id, availableQuantity, category , imgLink, price, title, seller } =
     toy;
-    console.log(toy)
+    console.log(toy);
+
+    const handleUpdated = (id) => {
+      try {
+        fetch(`https://toy-shop-server-omvngpqyq-sifat-ullah-shoyons-projects.vercel.app/products/${id}`, {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updatedToyInfo),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.modifiedCount > 0) {
+              toast.success("Add Toy Successfully");
+            }
+          });
+      } catch (error) {
+        console.error(error.message);
+      } 
+    };
+
     const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -21,7 +41,7 @@ const Toy = ({toy , index}) => {
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/products/${id}` , {
+                fetch(`https://toy-shop-server-omvngpqyq-sifat-ullah-shoyons-projects.vercel.app/products/${id}` , {
                     method : 'DELETE'
                 })
                 .then(res => res.json())
@@ -62,7 +82,7 @@ const Toy = ({toy , index}) => {
           <td>
             <div className='flex items-center justify-center'>
                 <Link to={`/updatedToy/${_id}`}>
-                <button className="btn btn-circle my-btn mr-3">
+                <button onClick={() => handleUpdated(_id)} className="btn btn-circle my-btn mr-3">
                     <HiPencilSquare />
                 </button>
                 </Link>

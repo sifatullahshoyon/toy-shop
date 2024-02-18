@@ -29,7 +29,7 @@ const OurHeros = () => {
   // All Data
   useEffect(() => {
     try {
-      fetch("http://localhost:5000/products")
+      fetch("https://toy-shop-server-omvngpqyq-sifat-ullah-shoyons-projects.vercel.app/products")
         .then((res) => res.json())
         .then((data) => {
           setProducts(data);
