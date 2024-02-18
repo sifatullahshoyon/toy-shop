@@ -43,7 +43,7 @@ const UpdatedToy = () => {
     console.log( updatedToyInfo);
 
     // try {
-    //   fetch(`https://toy-shop-server-omvngpqyq-sifat-ullah-shoyons-projects.vercel.app/products/${_id}`, {
+    //   fetch(`https://toy-shop-server-sifatullahshoyon-sifat-ullah-shoyons-projects.vercel.app/products/${_id}`, {
     //     method: "PATCH",
     //     headers: { "Content-Type": "application/json" },
     //     body: JSON.stringify(updatedToyInfo),

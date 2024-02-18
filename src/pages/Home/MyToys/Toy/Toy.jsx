@@ -13,7 +13,7 @@ const Toy = ({toy , index}) => {
 
     const handleUpdated = (id) => {
       try {
-        fetch(`https://toy-shop-server-omvngpqyq-sifat-ullah-shoyons-projects.vercel.app/products/${id}`, {
+        fetch(`https://toy-shop-server-sifatullahshoyon-sifat-ullah-shoyons-projects.vercel.app/products/${id}`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(updatedToyInfo),
@@ -41,7 +41,7 @@ const Toy = ({toy , index}) => {
             confirmButtonText: "Yes, delete it!"
           }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://toy-shop-server-omvngpqyq-sifat-ullah-shoyons-projects.vercel.app/products/${id}` , {
+                fetch(`https://toy-shop-server-sifatullahshoyon-sifat-ullah-shoyons-projects.vercel.app/products/${id}` , {
                     method : 'DELETE'
                 })
                 .then(res => res.json())

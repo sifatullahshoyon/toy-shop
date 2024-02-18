@@ -22,7 +22,7 @@ const DcData = () => {
 
   useEffect(() => {
     try {
-      fetch("https://toy-shop-server-omvngpqyq-sifat-ullah-shoyons-projects.vercel.app/dc-comics")
+      fetch("https://toy-shop-server-sifatullahshoyon-sifat-ullah-shoyons-projects.vercel.app/dc-comics")
         .then((res) => res.json())
         .then((data) => {
           setProducts(data);

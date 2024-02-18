@@ -16,7 +16,7 @@ const AllToy = () => {
   const handleSearchText = () => {
     useEffect(() => {
       try {
-        fetch(`https://toy-shop-server-omvngpqyq-sifat-ullah-shoyons-projects.vercel.app/getToyByText/${searchText}`)
+        fetch(`https://toy-shop-server-sifatullahshoyon-sifat-ullah-shoyons-projects.vercel.app/getToyByText/${searchText}`)
         .then(res => res.json())
         .then(data => {
           console.log(data);
@@ -30,7 +30,7 @@ const AllToy = () => {
 
   useEffect(() => {
     try {
-      fetch("https://toy-shop-server-omvngpqyq-sifat-ullah-shoyons-projects.vercel.app/products")
+      fetch("https://toy-shop-server-sifatullahshoyon-sifat-ullah-shoyons-projects.vercel.app/products")
         .then((res) => res.json())
         .then((data) => {
           setProducts(data);

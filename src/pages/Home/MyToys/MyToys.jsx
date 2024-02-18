@@ -8,7 +8,7 @@ const MyToys = () => {
     
     useEffect(() => {
         try {
-            fetch(`https://toy-shop-server-omvngpqyq-sifat-ullah-shoyons-projects.vercel.app/my-toys/${user?.email}`)
+            fetch(`https://toy-shop-server-sifatullahshoyon-sifat-ullah-shoyons-projects.vercel.app/my-toys/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);

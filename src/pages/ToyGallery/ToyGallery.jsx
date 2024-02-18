@@ -14,7 +14,7 @@ const ToyGallery = () => {
   useEffect(() => {
     const loadedData = async () => {
       try {
-        const res = await fetch("https://toy-shop-server-omvngpqyq-sifat-ullah-shoyons-projects.vercel.app/gallery");
+        const res = await fetch("https://toy-shop-server-sifatullahshoyon-sifat-ullah-shoyons-projects.vercel.app/gallery");
         const data = await res.json();
         setData(data);
       } catch (error) {

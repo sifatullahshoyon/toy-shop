@@ -22,7 +22,7 @@ const TransformersData = () => {
 
   useEffect(() => {
     try {
-      fetch("https://toy-shop-server-omvngpqyq-sifat-ullah-shoyons-projects.vercel.app/transformers")
+      fetch("https://toy-shop-server-sifatullahshoyon-sifat-ullah-shoyons-projects.vercel.app/transformers")
         .then((res) => res.json())
         .then((data) => {
           setProducts(data);

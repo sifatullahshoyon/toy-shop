@@ -22,7 +22,7 @@ const MarvelData = () => {
 
   useEffect(() => {
     try {
-      fetch("https://toy-shop-server-omvngpqyq-sifat-ullah-shoyons-projects.vercel.app/marvel")
+      fetch("https://toy-shop-server-sifatullahshoyon-sifat-ullah-shoyons-projects.vercel.app/marvel")
         .then((res) => res.json())
         .then((data) => {
           setProducts(data);
