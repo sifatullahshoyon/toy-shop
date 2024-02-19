@@ -5,11 +5,10 @@ import { toast } from "react-toastify";
 import { AuthContext } from "../../providers/AuthProviders";
 import { useParams } from "react-router-dom";
 
-
 const UpdatedToy = () => {
-    const [selectedOption, setSelectedOption] = useState(null);
-    const {_id} = useParams();
-    console.log(_id)
+  const [selectedOption, setSelectedOption] = useState(null);
+  const { _id } = useParams();
+  // console.log(_id);
   const { user } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
   const options = [
@@ -40,27 +39,30 @@ const UpdatedToy = () => {
       detail,
       imgUrl,
     };
-    console.log( updatedToyInfo);
 
-    // try {
-    //   fetch(`https://toy-shop-server-sifatullahshoyon-sifat-ullah-shoyons-projects.vercel.app/products/${_id}`, {
-    //     method: "PATCH",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify(updatedToyInfo),
-    //   })
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       console.log(data);
-    //       if (data.insertedId) {
-    //         toast.success("Add Toy Successfully");
-    //       }
-    //     });
-    // } catch (error) {
-    //   console.error(error.message);
-    // }   
+    try {
+      fetch(
+        `https://toy-shop-server-sifatullahshoyon-sifat-ullah-shoyons-projects.vercel.app/products/${_id}`,
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(updatedToyInfo),
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.modifiedCount > 0) {
+            toast.success("Toy Updated Successfully");
+          }
+        });
+    } catch (error) {
+      console.error(error.message);
+    }
   };
-    return (
-        <div className="container mx-auto p-10">
+
+  return (
+    <div className="container mx-auto p-10">
       <div className="flex-container">
         <div>
           <form
@@ -163,7 +165,7 @@ const UpdatedToy = () => {
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default UpdatedToy;

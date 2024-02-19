@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import { useNavigation } from "react-router-dom";
 
 const AddAToy = () => {
-    const navigation = useNavigation();
+  const navigation = useNavigation();
 
   if (navigation.state === "loading") {
     return <Spinner />;
@@ -42,14 +42,17 @@ const AddAToy = () => {
       detail,
       imgUrl,
     };
-    console.log( userInfo);
+    console.log(userInfo);
 
     try {
-      fetch("https://toy-shop-server-sifatullahshoyon-sifat-ullah-shoyons-projects.vercel.app/add-toy", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(userInfo),
-      })
+      fetch(
+        "https://toy-shop-server-sifatullahshoyon-sifat-ullah-shoyons-projects.vercel.app/add-toy",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(userInfo),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -60,8 +63,6 @@ const AddAToy = () => {
     } catch (error) {
       console.error(error.message);
     }
-
-    
   };
   return (
     <div className="container mx-auto p-10">

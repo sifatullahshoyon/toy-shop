@@ -13,64 +13,72 @@ import MyToys from "../../pages/Home/MyToys/MyToys";
 import UpdatedToy from "../../pages/UpdatedToy/UpdatedToy";
 import PrivetRoutes from "../PrivateRoutes";
 
-
-
 const router = createBrowserRouter([
-    {
-        path : '/',
-        element : <MainLayout />,
-        errorElement : <ErrorPage />,
-        children : [
-            {
-                path : '/',
-                element : <Home />
-            },
-           
-        ]
-    },
-    {
-        path : '/',
-        element : <SubMainLayout />,
-        children : [
-            {
-                path : '/',
-                element : <Home />
-            },
-            {
-                path : '/all-toy',
-                element : <AllToy />
-            },
-            {
-                path : '/registration',
-                element : <Registration />
-            },
-            {
-                path : '/login',
-                element : <Login />
-            },
-            {
-                path : '/blog',
-                element : <Blog />
-            },
-            {
-                path : '/details/:id',
-                element : <PrivetRoutes><ViewDetails /></PrivetRoutes>,
-                loader : ({params}) => fetch(`https://toy-shop-server-sifatullahshoyon-sifat-ullah-shoyons-projects.vercel.app/products/${params.id}`)
-            },
-            {
-                path : '/add-a-toy',
-                element : <PrivetRoutes><AddAToy /></PrivetRoutes>
-            },
-            {
-                path : '/my-toy',
-                element : <MyToys />
-            },
-            {
-                path : '/updatedToy/:id',
-                element : <UpdatedToy />
-            }
-        ]
-    }
+  {
+    path: "/",
+    element: <MainLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: <SubMainLayout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/all-toy",
+        element: <AllToy />,
+      },
+      {
+        path: "/registration",
+        element: <Registration />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/blog",
+        element: <Blog />,
+      },
+      {
+        path: "/details/:id",
+        element: (
+          <PrivetRoutes>
+            <ViewDetails />
+          </PrivetRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://toy-shop-server-sifatullahshoyon-sifat-ullah-shoyons-projects.vercel.app/products/${params.id}`
+          ),
+      },
+      {
+        path: "/add-a-toy",
+        element: (
+          <PrivetRoutes>
+            <AddAToy />
+          </PrivetRoutes>
+        ),
+      },
+      {
+        path: "/my-toy",
+        element: <MyToys />,
+      },
+      {
+        path: "/updatedToy/:id",
+        element: <UpdatedToy />,
+      },
+    ],
+  },
 ]);
 
 export default router;
